@@ -7,6 +7,11 @@
             "email": "slobodan.novakovic@typeqast.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "MakeFile\\": "src"
+        }
+    },
     "autoload-dev": {
         "psr-4": {
             "MakeFile\\Tests\\": "tests"
