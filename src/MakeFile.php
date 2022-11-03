@@ -36,5 +36,9 @@ class MakeFile {
 		if(!isset($this->args[1])) {
 			throw new Exception("\e[93mWhat is the {$this->args[0]} name? \n");
 		}
+
+		if(!preg_match('/^[a-zA-Z\/]+$/', $this->args[1])) {
+			throw new Exception("\e[91mFull file name should contain only aplphabetical characters and / \n");
+		}
 	}
 }
