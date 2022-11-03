@@ -25,7 +25,7 @@ class MakeFileTest extends TestCase {
 		$this->assertFileExists($makeFile->basePath.'Controllers/'.$userInputArgs[1].'.php');
 		$this->assertStringContainsString('created successfuly', $fileCreated);
 		$this->assertStringContainsString(
-			'namespace Tests\\temp\Controllers\Test;',
+			'namespace Tests\temp\Controllers\Test;',
 			file_get_contents($makeFile->basePath.'Controllers/'.$userInputArgs[1].'.php')
 		);
 		$this->assertStringContainsString(
@@ -36,6 +36,34 @@ class MakeFileTest extends TestCase {
 			$this->controllerTestTemplate(),
 			file_get_contents($makeFile->basePath.'Controllers/'.$userInputArgs[1].'.php')
 		);*/
+	}
+
+	/** @test */
+	public function creates_model_file_depending_on_user_input_and_returns_success_msg(): void {
+		$this->subDir = 'Models';
+
+		$this->fileFullName = 'Test/TestModel';
+
+		$userInputArgs = [
+			'model',
+			$this->fileFullName
+		];
+
+		$makeFile = new \MakeFile\MakeFile($userInputArgs);
+		$makeFile->basePath = \MakeFile\Config::get('base_config')['testingBasePath'];
+
+		$fileCreated = $makeFile->execute();
+
+		$this->assertFileExists($makeFile->basePath.'Models/'.$userInputArgs[1].'.php');
+		$this->assertStringContainsString('created successfuly', $fileCreated);
+		$this->assertStringContainsString(
+			'namespace Tests\temp\Models\Test;',
+			file_get_contents($makeFile->basePath.'Models/'.$userInputArgs[1].'.php')
+		);
+		$this->assertStringContainsString(
+			'class TestModel extends Model',
+			file_get_contents($makeFile->basePath.'Models/'.$userInputArgs[1].'.php')
+		);
 	}
 
 	private function controllerTestTemplate(): string {
