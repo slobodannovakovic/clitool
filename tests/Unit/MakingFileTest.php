@@ -62,7 +62,9 @@ class MakingFileTest extends TestCase {
 		return [
 			'no file type entered' => [[]],
 			'invalid file type entered' => [['unknown_file_type']],
-			'no file name entered' => [['controller']]
+			'no file name entered' => [['controller']],
+			'unallowed chars used in full file name' => [['controller', 'Test-TestController']],
+			'numbers used in full file name' => [['model', 'TestModel12']]
 		];
 	}
 }
