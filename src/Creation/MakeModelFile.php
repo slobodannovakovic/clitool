@@ -4,24 +4,12 @@ declare(strict_types=1);
 namespace MakeFile\Creation;
 
 use MakeFile\Templating\ModelTemplate;
-use MakeFile\Contracts\MakeFileInterface;
 use MakeFile\Config;
 use MakeFile\File;
 use Exception;
 
-class MakeModelFile implements MakeFileInterface {
-	private File $file;
-
-	private string $basePath;
-
-	public function __construct(
-		string $basePath,
-		private string $fullFileName
-	) {
-		$this->basePath = $basePath.'Models/';
-
-		$this->file = new File($this->basePath, $this->fullFileName);
-	}
+class MakeModelFile extends FileCreation {
+	protected static string $subDir = 'Models';
 
 	public function make(): string {
 		if(!file_exists($this->basePath.$this->file->fullDirPath)) {

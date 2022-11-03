@@ -4,24 +4,12 @@ declare(strict_types=1);
 namespace MakeFile\Creation;
 
 use MakeFile\Templating\ControllerTemplate;
-use MakeFile\Contracts\MakeFileInterface;
 use MakeFile\Config;
 use MakeFile\File;
 use Exception;
 
-class MakeControllerFile implements MakeFileInterface {
-	private File $file;
-
-	private string $basePath;
-
-	public function __construct(
-		string $basePath,
-		private string $fullFileName
-	) {
-		$this->basePath = $basePath.'Controllers/';
-
-		$this->file = new File($this->basePath, $this->fullFileName);
-	}
+class MakeControllerFile extends FileCreation {
+	protected static string $subDir = 'Controllers';
 
 	public function make(): string {
 		if(!file_exists($this->basePath.$this->file->fullDirPath)) {
