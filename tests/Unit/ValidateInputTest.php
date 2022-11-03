@@ -6,7 +6,7 @@ namespace MakeFile\Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use MakeFile\Tests\FileCreationSetUpAndTearDown;
 
-class MakingFileTest extends TestCase {
+class ValidateInputTest extends TestCase {
 	use FileCreationSetUpAndTearDown;
 
 	/** @test */
