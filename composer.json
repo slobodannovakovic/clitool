@@ -8,7 +8,7 @@
         }
     ],
     "license": "MIT",
-    "minimum-stbility": "dev",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "MakeFile\\": "src"
