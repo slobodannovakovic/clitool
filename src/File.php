@@ -12,6 +12,8 @@ class File {
 
 	public readonly string $fullPathWithName;
 
+	public readonly string $namespace;
+
 	public function __construct(
 		private string $basePath,
 		private string $fullFileName

@@ -5,7 +5,7 @@ namespace App\Controllers;
 
 use App\Controllers\Controller;
 
-class Test-TestController extends Controller {
+class MyController extends Controller {
 	public function __contruct() {
 		//
 	}

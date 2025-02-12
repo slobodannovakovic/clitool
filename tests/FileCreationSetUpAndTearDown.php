@@ -4,6 +4,12 @@ declare(strict_types=1);
 namespace MakeFile\Tests;
 
 trait FileCreationSetUpAndTearDown {
+	public string $subDir;
+
+	public string $fileFullName;
+
+	public string $fullDirPath;
+
 	public function setUp(): void {
 		$this->subDir = 'Controllers';
 
